@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Odin programs using lldb</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Debugging Odin programs using lldb</h1>
+        <p class="post-date">January 17, 2025</p>
+        <h2>Prerequisites</h2>
+<ul>
+<li>Install <a href="https://lldb.llvm.org/">lldb</a></li>
+</ul>
+<hr>
+<h2>Command Line Debugging</h2>
+<ul>
+<li>Compile the odin program in debug mode.</li>
+</ul>
+<p><code>odin build . -debug -out:debug.bin</code></p>
+<ul>
+<li>Start lldb on command line with the generated binary.</li>
+</ul>
+<p><code>lldb debug.bin</code></p>
+<hr>
+<h2>Using VSCode</h2>
+<h2>Setup</h2>
+<ul>
+<li>Install the CodeLLDB VSCode extension from Extensions</li>
+<li>Create a <code>.vscode</code> folder at the root of your Odin project</li>
+<li>Copy <code>launch.json</code> and <code>tasks.json</code> provide below into it</li>
+<li>Goto Run (in menu) and click on <strong>Start Debugging</strong></li>
+</ul>
+<h4>launch.json</h4>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;type&quot;: &quot;lldb&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;preLaunchTask&quot;: &quot;Build&quot;,
+            &quot;name&quot;: &quot;Debug&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/build/debug.bin&quot;,
+            &quot;args&quot;: [],
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;
+        }
+    ]
+}
+</code></pre>
+<h4>tasks.json</h4>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;command&quot;: &quot;&quot;,
+    &quot;args&quot;: [],
+    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;clean_and_makedir&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;rm -rf build/ &amp;&amp; mkdir -p build&quot;,
+        },
+        {
+            &quot;label&quot;: &quot;build&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;odin build . -debug -out:build/debug.bin&quot;,
+            &quot;group&quot;: &quot;build&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Build&quot;,
+            &quot;dependsOn&quot;: [
+                &quot;clean_and_makedir&quot;,
+                &quot;build&quot;
+            ]
+        }
+    ]
+}
+</code></pre>
+
+    </main>
+</body>
+</html>
