@@ -40,49 +40,47 @@
 <li>Goto Run (in menu) and click on <strong>Start Debugging</strong></li>
 </ul>
 <h4>launch.json</h4>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;configurations&quot;: [
-        {
-            &quot;type&quot;: &quot;lldb&quot;,
-            &quot;request&quot;: &quot;launch&quot;,
-            &quot;preLaunchTask&quot;: &quot;Build&quot;,
-            &quot;name&quot;: &quot;Debug&quot;,
-            &quot;program&quot;: &quot;${workspaceFolder}/build/debug.bin&quot;,
-            &quot;args&quot;: [],
-            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;
-        }
-    ]
-}
-</code></pre>
-<h4>tasks.json</h4>
-<pre><code class="language-json">{
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;command&quot;: &quot;&quot;,
-    &quot;args&quot;: [],
-    &quot;tasks&quot;: [
-        {
-            &quot;label&quot;: &quot;clean_and_makedir&quot;,
-            &quot;type&quot;: &quot;shell&quot;,
-            &quot;command&quot;: &quot;rm -rf build/ &amp;&amp; mkdir -p build&quot;,
-        },
-        {
-            &quot;label&quot;: &quot;build&quot;,
-            &quot;type&quot;: &quot;shell&quot;,
-            &quot;command&quot;: &quot;odin build . -debug -out:build/debug.bin&quot;,
-            &quot;group&quot;: &quot;build&quot;
-        },
-        {
-            &quot;label&quot;: &quot;Build&quot;,
-            &quot;dependsOn&quot;: [
-                &quot;clean_and_makedir&quot;,
-                &quot;build&quot;
-            ]
-        }
-    ]
-}
-</code></pre>
-
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;"><code><span style="display:flex;"><span><span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;version&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;1.0.0&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;configurations&#34;</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;type&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;lldb&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;request&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;launch&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;preLaunchTask&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;Build&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;name&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;Debug&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;program&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;${workspaceFolder}/build/debug.bin&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;args&#34;</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;cwd&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;${workspaceFolder}&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre><h4>tasks.json</h4>
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;"><code><span style="display:flex;"><span><span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;version&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;1.0.0&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;command&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;args&#34;</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">&#34;tasks&#34;</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;label&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;clean_and_makedir&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;type&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;shell&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;command&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;rm -rf build/ &amp;&amp; mkdir -p build&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;label&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;build&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;type&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;shell&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;command&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;odin build . -debug -out:build/debug.bin&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;group&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;build&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;label&#34;</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;Build&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">&#34;dependsOn&#34;</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a3be8c">&#34;clean_and_makedir&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a3be8c">&#34;build&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre>
     </main>
 </body>
 </html>
