@@ -9,8 +9,8 @@
 }
 
 html {
-    font-size: 15px;
-    line-height: 1.2;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 body {
@@ -101,7 +101,7 @@ a:hover {
 code {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.9rem;
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 0.15rem 0.4rem;
     border-radius: 3px;
 }
@@ -166,4 +166,8 @@ th {
 
 .post-list li:last-child {
     border-bottom: none;
+}
+
+pre code span {
+    font-style: normal !important;
 }
